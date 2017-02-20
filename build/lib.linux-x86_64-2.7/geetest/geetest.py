@@ -115,7 +115,7 @@ class GeetestLib(object):
             "challenge":challenge,
             "userinfo":userinfo,
             "captchaid":gt,
-            "JSON_FORMAT":JSON_FORMAT
+            "json_format":JSON_FORMAT
         }
         backinfo = self._post_values(validate_url, query)
         if JSON_FORMAT == 1:
