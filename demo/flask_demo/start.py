@@ -2,7 +2,7 @@
 import json
 
 from flask import session, make_response, Flask, request, render_template
-from geetest import GeetestLib
+from sdk import GeetestLib
 
 pc_geetest_id = "6f1ecf26ea05d03584319348bfc7594b"
 pc_geetest_key = "05ff7b722d3ad37304db391e121da926"

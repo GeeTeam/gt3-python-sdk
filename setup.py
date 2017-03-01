@@ -5,7 +5,7 @@ try:
     from setuptools import setup
 except:
     from distutils.core import setup
-VERSION = "3.2.0"
+VERSION = "3.0.0"
 
 
 if __name__ == "__main__":
@@ -14,7 +14,7 @@ if __name__ == "__main__":
     setup(
         name="geetest",
         version=VERSION,
-        packages=['geetest'],
+        packages=['sdk'],
         url='http://github.com/GeeTeam/gt-python-sdk',
         license='',
         author='Geetest',

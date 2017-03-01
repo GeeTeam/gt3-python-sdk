@@ -10,7 +10,7 @@ from hashlib import md5
 if sys.version_info >= (3,):
     xrange = range    
 
-VERSION = "3.2.0"
+VERSION = "3.0.0"
 
 
 class GeetestLib(object):
