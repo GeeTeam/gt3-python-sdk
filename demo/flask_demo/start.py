@@ -4,10 +4,8 @@ import json
 from flask import session, make_response, Flask, request, render_template
 from sdk import GeetestLib
 
-pc_geetest_id = "6f1ecf26ea05d03584319348bfc7594b"
-pc_geetest_key = "05ff7b722d3ad37304db391e121da926"
-mobile_geetest_id = "48a6ebac4ebc6642d68c217fca33eb4d"
-mobile_geetest_key = "4f1c085290bec5afdc54df73535fc361"
+pc_geetest_id = "48a6ebac4ebc6642d68c217fca33eb4d"
+pc_geetest_key = "4f1c085290bec5afdc54df73535fc361"
 app = Flask(__name__)
 app.config.update(
     DEBUG=True,
