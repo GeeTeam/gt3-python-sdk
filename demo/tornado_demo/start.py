@@ -10,8 +10,7 @@ import json
 
 pc_geetest_id = "48a6ebac4ebc6642d68c217fca33eb4d"
 pc_geetest_key = "4f1c085290bec5afdc54df73535fc361"
-mobile_geetest_id = "7c25da6fe21944cfe507d2f9876775a9"
-mobile_geetest_key = "f5883f4ee3bd4fa8caec67941de1b903"
+
 
 product = "embed"
 

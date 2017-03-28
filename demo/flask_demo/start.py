@@ -22,16 +22,6 @@ def get_pc_captcha():
     response_str = gt.get_response_str()
     return response_str
 
-@app.route('/mobile-geetest/register', methods=["GET"])
-def get_mobile_captcha():
-    user_id = 'test'
-    gt = GeetestLib(mobile_geetest_id, mobile_geetest_key)
-    status = gt.pre_process(user_id)
-    session[gt.GT_STATUS_SESSION_KEY] = status
-    session["user_id"] = user_id
-    response_str = gt.get_response_str()
-    return response_str
-
 @app.route('/pc-geetest/validate', methods=["POST"])
 def pc_validate_captcha():
     gt = GeetestLib(pc_geetest_id, pc_geetest_key)
@@ -50,21 +40,6 @@ def pc_validate_captcha():
 @app.route('/pc-geetest/ajax_validate', methods=["POST"])
 def pc_ajax_validate():
     gt = GeetestLib(pc_geetest_id,pc_geetest_key)
-    challenge = request.form[gt.FN_CHALLENGE]
-    validate = request.form[gt.FN_VALIDATE]
-    seccode = request.form[gt.FN_SECCODE]
-    status = session[gt.GT_STATUS_SESSION_KEY]
-    user_id = session["user_id"]
-    if status:
-        result = gt.success_validate(challenge, validate, seccode, user_id,data='',userinfo='')
-    else:
-        result = gt.failback_validate(challenge, validate, seccode)
-    result = {"status":"success"} if result else {"status":"fail"}
-    return json.dumps(result)
-
-@app.route('/mobile-geetest/ajax_validate', methods=["POST"])
-def mobile_ajax_validate():
-    gt = GeetestLib(mobile_geetest_id,mobile_geetest_key)
     challenge = request.form[gt.FN_CHALLENGE]
     validate = request.form[gt.FN_VALIDATE]
     seccode = request.form[gt.FN_SECCODE]
