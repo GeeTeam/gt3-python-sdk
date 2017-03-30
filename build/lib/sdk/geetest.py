@@ -36,7 +36,6 @@ class GeetestLib(object):
     def pre_process(self, user_id=None,new_captcha=1,JSON_FORMAT=1,client_type="web",ip_address=""):
         """
         验证初始化预处理.
-        //TO DO  arrage the parameter
         """
         status, challenge = self._register(user_id,new_captcha,JSON_FORMAT,client_type,ip_address)
         self._response_str = self._make_response_format(status, challenge,new_captcha)

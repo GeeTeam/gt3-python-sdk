@@ -11,7 +11,6 @@ import json
 pc_geetest_id = "48a6ebac4ebc6642d68c217fca33eb4d"
 pc_geetest_key = "4f1c085290bec5afdc54df73535fc361"
 
-
 product = "embed"
 
 
@@ -24,7 +23,7 @@ class PcGetCaptchaHandler(SessionBaseHandler):
     def get(self):
         user_id = 'test'
         gt = GeetestLib(pc_geetest_id, pc_geetest_key)
-        status = gt.pre_process(user_id,JSON_FORMAT=0)
+        status = gt.pre_process(user_id,JSON_FORMAT=0,ip_address="127.0.0.1")
         if not status:
             status=2
         self.session[gt.GT_STATUS_SESSION_KEY] = status
