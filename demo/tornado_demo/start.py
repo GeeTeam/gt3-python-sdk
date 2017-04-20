@@ -8,8 +8,8 @@ from sdk import GeetestLib
 
 import json
 
-pc_geetest_id = "48a6ebac4ebc6642d68c217fca33eb4d"
-pc_geetest_key = "4f1c085290bec5afdc54df73535fc361"
+pc_geetest_id = "3a6cf8e87578a502814058527b093ae1"
+pc_geetest_key = "869085a37e3c862678324bg18r58446a"
 
 product = "embed"
 
@@ -17,6 +17,10 @@ product = "embed"
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
         self.render("static/login.html",)
+
+class JsHandler(tornado.web.RequestHandler):
+    def get(self):
+        self.render("static/gt.js",)
 
 
 class PcGetCaptchaHandler(SessionBaseHandler):
@@ -51,6 +55,7 @@ class PcValidateHandler(SessionBaseHandler):
 if __name__ == "__main__":
     app = tornado.web.Application([
                                       (r"/", MainHandler),
+                                      (r"/static/gt.js",JsHandler),
                                       (r"/pc-geetest/register", PcGetCaptchaHandler),
                                       (r"/pc-geetest/validate", PcValidateHandler),
                                   ], debug=True)
