@@ -1,8 +1,9 @@
-#coding:utf-8
+# coding:utf-8
 import json
 
-from flask import session, make_response, Flask, request, render_template
+from flask import session, make_response, Flask, request, render_template, send_from_directory
 from sdk import GeetestLib
+import os
 
 pc_geetest_id = "48a6ebac4ebc6642d68c217fca33eb4d"
 pc_geetest_key = "4f1c085290bec5afdc54df73535fc361"
@@ -22,6 +23,7 @@ def get_pc_captcha():
     response_str = gt.get_response_str()
     return response_str
 
+
 @app.route('/pc-geetest/validate', methods=["POST"])
 def pc_validate_captcha():
     gt = GeetestLib(pc_geetest_id, pc_geetest_key)
@@ -37,20 +39,28 @@ def pc_validate_captcha():
     result = "<html><body><h1>登录成功</h1></body></html>" if result else "<html><body><h1>登录失败</h1></body></html>"
     return result
 
+
 @app.route('/pc-geetest/ajax_validate', methods=["POST"])
 def pc_ajax_validate():
-    gt = GeetestLib(pc_geetest_id,pc_geetest_key)
+    gt = GeetestLib(pc_geetest_id, pc_geetest_key)
     challenge = request.form[gt.FN_CHALLENGE]
     validate = request.form[gt.FN_VALIDATE]
     seccode = request.form[gt.FN_SECCODE]
     status = session[gt.GT_STATUS_SESSION_KEY]
     user_id = session["user_id"]
     if status:
-        result = gt.success_validate(challenge, validate, seccode, user_id,data='',userinfo='')
+        result = gt.success_validate(challenge, validate, seccode, user_id, data='', userinfo='')
     else:
         result = gt.failback_validate(challenge, validate, seccode)
-    result = {"status":"success"} if result else {"status":"fail"}
+    result = {"status": "success"} if result else {"status": "fail"}
     return json.dumps(result)
+
+
+@app.route('/static/<path>')
+def statichandler(path):
+    spath = os.path.abspath(os.path.dirname(__name__)) + "/templates"
+    return send_from_directory(spath, path)
+
 
 @app.route('/')
 def login():
