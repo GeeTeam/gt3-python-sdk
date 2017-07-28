@@ -8,8 +8,8 @@ from sdk import GeetestLib
 
 import json
 
-pc_geetest_id = "3a6cf8e87578a502814058527b093ae1"
-pc_geetest_key = "869085a37e3c862678324bg18r58446a"
+pc_geetest_id = "48a6ebac4ebc6642d68c217fca33eb4d"
+pc_geetest_key = "4f1c085290bec5afdc54df73535fc361"
 
 product = "embed"
 
