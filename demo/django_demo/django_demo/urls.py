@@ -1,6 +1,6 @@
 from django.conf.urls import  url
 
-urlpatterns = ['',
+urlpatterns = [
     url(r'^pc-geetest/register', 'app.views.pcgetcaptcha', name='pcgetcaptcha'),
     url(r'^mobile-geetest/register', 'app.views.mobilegetcaptcha', name='mobilegetcaptcha'),
     url(r'^pc-geetest/validate$', 'app.views.pcvalidate', name='pcvalidate'),
