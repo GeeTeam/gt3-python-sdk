@@ -8,6 +8,7 @@ from sdk import GeetestLib
 
 import json
 
+#请在官网申请ID使用，示例ID不可使用
 pc_geetest_id = "48a6ebac4ebc6642d68c217fca33eb4d"
 pc_geetest_key = "4f1c085290bec5afdc54df73535fc361"
 
