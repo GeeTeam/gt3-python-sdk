@@ -1,4 +1,4 @@
-极验验证
+极验行为验证
 ========
 极验行为验证是一款可以帮助你的网站与 APP 应用识别与拦截机器程序批量自动化操作的SaaS应用。它是由极验开发的
 新一代人机验证产品，它不基于传统“问题-答案”的检测模式，而是通过利用深度学习对验证过程中产生的行为数据进行
@@ -10,8 +10,7 @@
 行为验证的整个集成流程是顺序进行的，业务层主要涉及到客户端和服务端的部署，在下一个步骤开始前请确保上一个
 步骤的检查点都已经正确完成；请开发者严格按照步骤进行。
 
-步骤   注册极验账户(1) -> 登录极验后台(2) -> 注册验证 ID 和 Key (3) -> 配置ID属性(4) -> 集成服务端代码(5) -> 
-	   集成客户端代码(6) -> 服务上线(7) -> 数据上线(8) -> 登录后台查看数据(9)
+步骤:   注册极验账户(1) - 登录极验后台(2) - 注册验证 ID 和 Key (3) - 配置ID属性(4) - 集成服务端代码(5) -  集成客户端代码(6) - 服务上线(7) - 数据上线(8) - 登录后台查看数据(9)
 
 
 新手指南
@@ -45,7 +44,7 @@ Gt Python SDK
 
 极验验证的Python SDK目前提供基于django, flask, tornado框架的DEMO。
 
-本项目是面向服务器端的，具体使用可以参考我们的 `文档 <http://www.geetest.com/install/sections/idx-server-sdk.html>`_ ,客户端相关开发请参考我们的 `前端文档。 <http://www.geetest.com/install/>`_.
+本项目是面向服务器端的，具体使用可以参考我们的[文档](http://www.geetest.com/install/sections/idx-server-sdk.html)  ,客户端相关开发请参考我们的 [前端文档](http://www.geetest.com/install/).
 
 **注意事项：部署在生产环境中时，需要将gt.js文件存放到项目中并在页面中引用该文件。该js的作用是充分利用多CDN，使静态文件尽可能加载成功。**
 
@@ -62,33 +61,27 @@ Gt Python SDK
 
 1. 获取代码
 
-从 `Github <https://github.com/GeeTeam/gt-python-sdk/>`__ 上Clone代码:
-
-.. code-block:: bash
-
+从[Github](https://github.com/GeeTeam/gt-python-sdk/)上Clone代码:
+```
     $ git clone https://github.com/GeeTeam/gt-python-sdk.git
-
+```
 2. 安装GeetestSDK
-
-.. code-block:: bash
-
+```
     $ sudo python setup.py install
-
+```
 3. 初始化验证
 
 
 在调用GeetestLib前请自行设定公钥和私钥,用户id为可选项，默认为随机数字：
 
-.. code-block :: python
-
+```
   captach_id = "你的公钥"
   private_key = "你的私钥"
   user_id = random.randint(1,100)
+```
 
 根据自己的私钥初始化验证
-
-.. code-block :: python
-
+```
   @app.route('/getcaptcha', methods=["GET"])
   def get_captcha():
       user_id = random.randint(1,100)
@@ -98,11 +91,9 @@ Gt Python SDK
       session["user_id"] = user_id
       response_str = gt.get_response_str()
       return response_str
-
+```
 4. 二次验证
-
-.. code-block :: python
-
+```
   @app.route('/validate', methods=["POST"])
   def validate_capthca():
       gt = GeetestLib(captcha_id, private_key)
@@ -117,33 +108,27 @@ Gt Python SDK
           result = gt.fail_validate(challenge, validate, seccode)
       result = "success" if result else "fail"
       return result
-
+```
 
 运行demo
 ---------------------
 
 1. django demo运行：进入django_demo文件夹，运行：
-
-.. code-block:: bash
-
+```
     $ python manage.py runserver 0.0.0.0:8000
-
+```
 在浏览器中访问http://localhost:8000即可看到Demo界面
 
 2. flask demo运行：进入flask_demo文件夹，运行：
-
-.. code-block:: bash
-
+```
     $ python start.py
-
+```
 在浏览器中访问http://localhost:5000即可看到Demo界面
 
 3. tornado demo运行：进入tornado_demo文件夹，运行:
-
-.. code-block:: bash
-
+```
     $ python start.py
-
+```
 在浏览器中访问http://localhost:8088即可看到Demo界面
 
 
