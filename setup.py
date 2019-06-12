@@ -5,7 +5,7 @@ try:
     from setuptools import setup
 except:
     from distutils.core import setup
-VERSION = "3.2.1"
+VERSION = "3.3.0"
 
 
 if __name__ == "__main__":
