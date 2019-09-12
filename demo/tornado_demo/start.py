@@ -4,7 +4,7 @@ import tornado.web
 import tornado.gen
 from torndsession.sessionhandler import SessionBaseHandler
 from torndsession.session import SessionManager
-from sdk import GeetestLib
+from geetest import GeetestLib
 
 import json
 
