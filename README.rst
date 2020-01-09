@@ -1,15 +1,13 @@
-Gt Python SDK
+Gt3 Python SDK
 ===============
-使用 3.1 之前版本SDK的用户如果想更新到3.1以及以后版本请先联系极验客服,因为为了兼容老用户,新的特性需要修改验证设置。
 
 极验验证的Python SDK目前提供基于django, flask, tornado框架的DEMO。
 
-**注意事项：部署在生产环境中时，需要将gt.js文件存放到项目中并在页面中引用该文件。该js的作用是充分利用多CDN，使静态文件尽可能加载成功。**
 
 开发环境
 ----------------
 
- - Python (推荐2.7.0以上版本）
+ - Python (推荐3.5）
  - django, flask, tornado框架
 
 快速开始
@@ -19,17 +17,17 @@ Gt Python SDK
 
 1. 获取代码
 
-从 `Github <https://github.com/GeeTeam/gt-python-sdk/>`__ 上Clone代码:
+从 `Github <https://github.com/GeeTeam/gt3-python-sdk>`__ 上Clone代码:
 
 .. code-block:: bash
 
-    $ git clone https://github.com/GeeTeam/gt-python-sdk.git
+    $ git clone https://github.com/GeeTeam/gt3-python-sdk.git
 
-2. 安装GeetestSDK
+2. 安装pip依赖
 
 .. code-block:: bash
 
-    $ sudo python setup.py install
+    $ sudo pip3 install -r requirements.txt
 
 3. 初始化验证
 
