@@ -1,12 +1,11 @@
-# coding:utf-8
+import json
+import tornado.gen
 import tornado.ioloop
 import tornado.web
-import tornado.gen
-from torndsession.sessionhandler import SessionBaseHandler
 from torndsession.session import SessionManager
-from geetest import GeetestLib
+from torndsession.sessionhandler import SessionBaseHandler
 
-import json
+from geetest import GeetestLib
 
 #请在官网申请ID使用，示例ID不可使用
 pc_geetest_id = "48a6ebac4ebc6642d68c217fca33eb4d"
