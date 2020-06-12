@@ -35,13 +35,13 @@ class GeetestLib(object):
         return status
 
     def _register(self, user_id=None, new_captcha=1, JSON_FORMAT=1, client_type="web", ip_address=""):
-        pri_responce = self._register_challenge(user_id, new_captcha, JSON_FORMAT, client_type, ip_address)
-        if pri_responce:
+        pri_response = self._register_challenge(user_id, new_captcha, JSON_FORMAT, client_type, ip_address)
+        if pri_response:
             if JSON_FORMAT == 1:
-                response_dic = json.loads(pri_responce)
+                response_dic = json.loads(pri_response)
                 challenge = response_dic["challenge"]
             else:
-                challenge = pri_responce
+                challenge = pri_response
         else:
             challenge = " "
         if len(challenge) == 32:
